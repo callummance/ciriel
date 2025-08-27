@@ -1,0 +1,22 @@
+{
+    "users": {
+        "ciriel-media": {
+            "uid": 2001,
+            "type": "system"
+        },
+        "callum": {
+            "uid": 2002,
+            "type": "normal",
+            "groups": [ "ciriel-media", "wheel", "sudo" ]
+        }
+    },
+
+    "groups": {
+        "ciriel-media": {
+            "gid": 2001
+        },
+        "callum": {
+            "gid": 2002
+        }
+    }
+}
