@@ -20,6 +20,7 @@
  - RomM?
  - *arr stack
     - Jellyseerr (Overseerr)?
+    - Soulseek?
     - Prowlarr
     - Radarr
     - Sonarr
@@ -32,7 +33,7 @@
  - Pangolin (WAN)
  - Traefik (LAN)
  - Tailscale
- - Authentik
+ - Authelia + glauth?
 
 ### Backup
  - Duplicacy?
@@ -49,6 +50,8 @@
  - Homebox?
  - n8n?
  - netboot.xyz
+ - Forgejo (git)
+ - Linkwarden
 
 ### Monitoring
  - Grafana
