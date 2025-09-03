@@ -17,3 +17,5 @@ spec:
       interval: 24h
   values:
     installCRDs: true
+    config:
+      enableGatewayAPI: true
