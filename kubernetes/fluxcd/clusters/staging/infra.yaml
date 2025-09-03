@@ -2,6 +2,20 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
+  name: api-support
+  namespace: flux-system
+spec:
+  interval: 24h
+  path: ./kubernetes/fluxcd/infra/api-support
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
   name: infra-controllers
   namespace: flux-system
 spec:
@@ -10,6 +24,8 @@ spec:
   path: ./kubernetes/fluxcd/infra/controllers
   prune: true
   wait: true
+  dependsOn: 
+    - name: api-support
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -24,6 +40,10 @@ spec:
   retryInterval: 1m
   path: ./kubernetes/fluxcd/infra/configs/staging
   prune: true
+  wait: true
+  dependsOn: 
+    - name: api-support
+    - name: infra-controllers
   decryption:
     provider: sops
     secret_ref: sops-age
