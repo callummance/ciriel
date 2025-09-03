@@ -24,6 +24,9 @@ spec:
   retryInterval: 1m
   path: ./kubernetes/fluxcd/infra/configs/staging
   prune: true
+  decryption:
+    provider: sops
+    secret_ref: sops-age
   sourceRef:
     kind: GitRepository
     name: flux-system

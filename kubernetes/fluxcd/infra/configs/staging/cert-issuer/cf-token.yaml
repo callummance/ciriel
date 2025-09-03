@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cloudflare-api-token-secret
+stringData:
+  cf_token: ENC[AES256_GCM,data:ZF2+T/rCymlVWBbFsR18OsFT7WYfHS/QaisIkY3tLHG4qrGUe/m1CQ==,iv:OVrXzflK9lOgnUjpCNfheBZPKJFWAsFh373OaMYDUjc=,tag:y9jCwTU7sITbJNht0HocYQ==,type:str]
+type: Opaque
+sops:
+  age:
+    - recipient: ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAwulIuyi07N1dw3OhNFWME1p1eT16cG3RCO7SErsq/UBpb42XNE+b7VVXrnqADKekTQMHFZpQaZgR2Smy5hpsG1wMlRRY2wZdnJxPqpW18HaM6OmTi2JDN8PXfdtwjhiGHcSDIf9F60Yo7wGix/rBZh43CWr0L5uIMbD3iQTzN0ChI2uGOV2t4hcOQU+OOLh5cEBBvelE2Y8G15s6cKpYF7HYsTre+0OUIOFPCYphfA9MsN/q4bR+7QX3+lB4jVFJaLo2afV3wAfi12Yon7OJ8gRefS2ioDKKW11RR3XJJ7JnolIDaEja1Wu7QJXWt2F4+2hnk4D/dUKBJ2bl1Y1tpQ== rsa-key-20160508
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IHNzaC1yc2EgRlJvS0FRCkNGQzJZVGs0
+        emJKMTUrZktJVGg5TXF4TFlRdEI2RzgwSDdpMDI1SlJYL2w1ajlTN2dYWE9xTmFH
+        S21XWGF0TmEKL0tJa0JuU2FNQkt0a2VOQWRiTnVqNGlQVXRtdWVoclo4cVFNL3g0
+        T2RJMU9kMlVEenA4SGJRY2NWdDFnTG44UAp2QjB3S25FbTVaSnlTd09lMjhwelJo
+        alQrYy9kWEc1RE9uV1V1RG1XUTFDaVlQWDRSUmlFaWx2eXBBL3JDM0ttClFuQkNJ
+        a1c2ZUgxOFhEMWhtWWlGeUNBQjRqY1FPSlFXb2JQS1p1R2lwOWF2bUdrRld4b2hI
+        RzhnaWJxNEF5V3gKMXpNM1ZxQ1F4a2hzRDBKaGs2bFQvUUxDcTlGZ0loaGNCNTQ4
+        Z2ZEbmhoNlhrUEh6OUc3WHd0M09JSDY3UmMrVwptQ2lsMkRVTTJtWGJ1eTBtbzln
+        dEJnCi0tLSBGVThHMXR1SU1kY1NsWXllSDMxcVBxNHN0T2IwSEtYY0Q3aUlKaTFG
+        UFgwCsSTEQHEBJrJgjfhAdA/QzO4dhA4vr80VeIFau6kEwBhfbLj0AxC9ZtfZq2t
+        hTaRVNug4l0dGm5XKGI6JIoVII8=
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-09-03T17:42:41Z"
+  mac: ENC[AES256_GCM,data:0PTIorC0aTBKk+rQlGkshh8ECnDaGvT2WdpAc4Nw1hVbVCL5vpSaNM0loYKm2WbJWagByseVpLBWC0XZ2OGFaCZvEbBOMAE71uxyZxBjU8ZfKsRcyZYfrRL/717LooCcJhYijhmxdT+g3P5mrsjlV0L16DYLd5etieXQ2b1tlBs=,iv:aSA6deN+g6i7+ImsUY89PE6c/B28eyTXLleao2opg+I=,tag:NB3TAOju14Vk7eXZEA82BA==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  version: 3.10.2

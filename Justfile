@@ -38,6 +38,12 @@ bootstrap-flux-dev:
         --private-key-file=./secrets/deploy.key \
         --path=kubernetes/fluxcd/clusters/staging
 
+[group("dev-kube-cluster")]
+insert-age-key-dev:
+    kubectl create secret generic sops-age \
+        --namespace=flux-system \
+        --from-file=age.agekey=~/.ssh/id_rsa
+
 #gh_token := `cat gh_token.age | age --decrypt -i ~/.ssh/id_rsa`
 #test:
 #    @echo "{{ gh_token }}"
