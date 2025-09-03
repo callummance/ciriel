@@ -11,4 +11,8 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-pk
     solvers:
-      - dns01
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              name: cloudflare-api-token-secret
+              key: cf_token
