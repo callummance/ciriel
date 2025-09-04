@@ -45,7 +45,7 @@ insert-age-key-dev:
         --from-file=age.agekey=/dev/stdin
 
 reconcile-all:
-    flux reconcil source git flux-system
+    flux reconcile source git flux-system
 
 #gh_token := `cat gh_token.age | age --decrypt -i ~/.ssh/id_rsa`
 #test:

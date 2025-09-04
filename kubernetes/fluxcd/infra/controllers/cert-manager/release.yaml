@@ -9,7 +9,8 @@ spec:
   chart:
     spec:
       chart: cert-manager
-      version: "1.18.x"
+      #TODO: use semantic versioning when flux is less janky
+      version: "v1.18.2"
       sourceRef:
         kind: HelmRepository
         name: cert-manager
