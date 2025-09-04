@@ -25,7 +25,7 @@ spec:
         enabled: false
       kubernetesGateway:
         enabled: true
-        experimentalChannel: true
+        experimentalChannel: false
     ingressClass:
       enabled: false
     gateway:
