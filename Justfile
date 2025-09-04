@@ -40,7 +40,7 @@ bootstrap-flux-dev:
 
 [group("dev-kube-cluster")]
 insert-age-key-dev:
-    cat ~/.ssh/id_rsa | kubectl create secret generic sops-age \
+    cat ~/.ssh/id_ed25519 | ssh-to-age -private-key | kubectl create secret generic sops-age \
         --namespace=flux-system \
         --from-file=age.agekey=/dev/stdin
 
