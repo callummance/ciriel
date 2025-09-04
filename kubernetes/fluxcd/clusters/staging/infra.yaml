@@ -45,7 +45,8 @@ spec:
     - name: api-support
   decryption:
     provider: sops
-    secret_ref: sops-age
+    secretRef: 
+      name: sops-age
   sourceRef:
     kind: GitRepository
     name: flux-system
