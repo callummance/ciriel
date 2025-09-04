@@ -1,0 +1,64 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: traefik
+  namespace: traefik
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: traefik
+      version: "v37.1.x"
+      sourceRef:
+        kind: HelmRepository
+        name: traefik
+        namespace: traefik
+  values:
+    # Use Gateway API
+    providers:
+      kubernetesIngress:
+        enabled: false
+      kubernetesGateway:
+        enabled: true
+        experimentalChannel: true
+    ingressClass:
+      enabled: false
+    gateway:
+      enabled: false
+    gatewayClass:
+      enabled: true
+      name: "traefik"
+    # BasicAuth middleware for dashboard
+    extraObjects:
+      - apiVersion: traefik.io/v1alpha1
+        kind: Middleware
+        metadata:
+          name: dashboard-auth
+        spec:
+          basicAuth:
+            secret: dashboard-auth-secret
+    # Enable dashboard
+    ports:
+      http:
+        port: 80
+        nodePort: 30000
+        redirections:
+          entryPoint:
+            to: https
+            scheme: https
+            permanent: true
+      https:
+        port: 443
+        nodePort: 30001
+    api:
+      dashboard: true
+      insecure: false
+    ingressRoute:
+      dashboard:
+        enabled: true
+        matchRule: Host(`dashboard.docker.local`)
+        entryPoints:
+          - https
+        middlewares:
+          - name: dashboard-auth

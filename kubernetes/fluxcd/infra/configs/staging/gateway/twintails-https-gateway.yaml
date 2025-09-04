@@ -1,0 +1,29 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: traefik-gateway
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  gatewayClassName: traefik
+  listeners:
+    - name: twintails-http
+      protocol: HTTP
+      hostname: "*.twintailsare.moe"
+      port: 80
+      allowedRoutes:
+        namespaces:
+          from: All
+
+    - name: twintails-https
+      protocol: HTTPS
+      hostname: "*.twintailsare.moe"
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: twintailsare-moe-tls
+            kind: Secret
