@@ -40,9 +40,12 @@ bootstrap-flux-dev:
 
 [group("dev-kube-cluster")]
 insert-age-key-dev:
-    kubectl create secret generic sops-age \
+    cat ~/.ssh/id_rsa | kubectl create secret generic sops-age \
         --namespace=flux-system \
-        --from-file=age.agekey=~/.ssh/id_rsa
+        --from-file=age.agekey=/dev/stdin
+
+reconcile-all:
+    flux reconcil source git flux-system
 
 #gh_token := `cat gh_token.age | age --decrypt -i ~/.ssh/id_rsa`
 #test:
