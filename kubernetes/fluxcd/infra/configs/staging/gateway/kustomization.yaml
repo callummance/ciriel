@@ -4,3 +4,4 @@ kind: Kustomization
 
 resources:
   - ./twintails-https-gateway.yaml
+  - ./dashboard-auth-secret.yaml
