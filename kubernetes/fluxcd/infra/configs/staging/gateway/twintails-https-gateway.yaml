@@ -8,6 +8,17 @@ metadata:
 spec:
   gatewayClassName: traefik
   listeners:
+    - name: dashboard
+      protocol: HTTP
+      hostname: "dashboard.docker.local"
+      port: 8888
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              dashboard-gateway-access: "true"
+
     - name: twintails-http
       protocol: HTTP
       hostname: "*.twintailsare.moe"
