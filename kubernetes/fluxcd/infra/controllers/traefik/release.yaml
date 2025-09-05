@@ -54,22 +54,17 @@ spec:
       http:
         port: 80
         nodePort: 30000
-        redirections:
-          entryPoint:
-            to: https
-            scheme: https
-            permanent: true
       https:
         port: 443
         nodePort: 30001
     api:
       dashboard: true
-      insecure: false
-    ingressRoute:
-      dashboard:
-        enabled: true
-        matchRule: Host(`dashboard.docker.local`)
-        entryPoints:
-          - https
-        middlewares:
-          - name: dashboard-auth
+      insecure: true
+    # ingressRoute:
+    #   dashboard:
+    #     enabled: true
+    #     matchRule: Host(`dashboard.docker.local`)
+    #     entryPoints:
+    #       - https
+    #     middlewares:
+    #       - name: dashboard-auth

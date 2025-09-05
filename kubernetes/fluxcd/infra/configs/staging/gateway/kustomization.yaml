@@ -5,3 +5,4 @@ metadata:
   name: gateway-config
 resources:
   - ./twintails-https-gateway.yaml
+  - ./dashboard-httproute.yaml
