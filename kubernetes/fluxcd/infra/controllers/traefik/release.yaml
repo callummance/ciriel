@@ -19,6 +19,13 @@ spec:
         name: traefik
         namespace: traefik
   values:
+    # Verbose logging
+    logs:
+      general:
+        level: DEBUG
+      access:
+        enabled: true
+        addInternals: true
     # Use Gateway API
     providers:
       kubernetesIngress:

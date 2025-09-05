@@ -6,6 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 24h
+  timeout: 1m
   path: ./kubernetes/fluxcd/infra/api-support
   prune: true
   wait: true
