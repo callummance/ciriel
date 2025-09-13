@@ -1,0 +1,22 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: global-alertmanager-config
+  namespace: monitoring
+  labels:
+    alertmanager-config: global
+spec:
+  route:
+    groupBy: ['job']
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 12h
+    receiver: 'telegram.backend'
+  receivers:
+    - name: "null"
+    - name: "telegram.backend"
+      telegramConfigs:
+        - botToken:
+            name: alertmanager-secrets
+            key: telegram-bot-token
+          chatID: 8250010864
