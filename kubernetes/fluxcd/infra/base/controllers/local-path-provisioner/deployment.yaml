@@ -5,9 +5,12 @@ metadata:
   name: local-path-provisioner
   namespace: local-path-storage
 spec:
-  interval: 10m
-  path: ./deploy
+  interval: 60m
+  timeout: 3m
+  retryInterval: 2m
   prune: true
+  wait: true
+  path: ./deploy
   sourceRef:
     kind: GitRepository
     name: local-path-provisioner

@@ -6,10 +6,12 @@ metadata:
   name: cert-manager-controller
   namespace: flux-system
 spec:
-  interval: 1h
-  path: ./kubernetes/fluxcd/infra/base/controllers/cert-manager
+  interval: 60m
+  timeout: 3m
+  retryInterval: 2m
   prune: true
   wait: true
+  path: ./kubernetes/fluxcd/infra/base/controllers/cert-manager
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -22,10 +24,12 @@ metadata:
   name: cert-manager-config
   namespace: flux-system
 spec:
-  interval: 1h
-  path: ./kubernetes/fluxcd/infra/base/configs/cert-issuer
+  interval: 60m
+  timeout: 3m
+  retryInterval: 2m
   prune: true
   wait: true
+  path: ./kubernetes/fluxcd/infra/base/configs/cert-issuer
   postBuild:
     substituteFrom:
       - kind: ConfigMap

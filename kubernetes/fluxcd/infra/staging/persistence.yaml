@@ -5,10 +5,12 @@ metadata:
   name: persistence-lpp-configs
   namespace: flux-system
 spec:
-  interval: 1h
-  path: ./kubernetes/fluxcd/infra/base/configs/local-persistence
+  interval: 60m
+  timeout: 3m
+  retryInterval: 2m
   prune: true
   wait: true
+  path: ./kubernetes/fluxcd/infra/base/configs/local-persistence
   postBuild:
     substituteFrom:
       - kind: ConfigMap
@@ -24,10 +26,12 @@ metadata:
   name: persistence-lpp-controller
   namespace: flux-system
 spec:
-  interval: 1h
-  path: ./kubernetes/fluxcd/infra/base/controllers/local-path-provisioner
+  interval: 60m
+  timeout: 3m
+  retryInterval: 2m
   prune: true
   wait: true
+  path: ./kubernetes/fluxcd/infra/base/controllers/local-path-provisioner
   sourceRef:
     kind: GitRepository
     name: flux-system

@@ -6,10 +6,12 @@ metadata:
   name: gateway-api-crds
   namespace: flux-system
 spec:
-  interval: 1h
-  path: ./kubernetes/fluxcd/infra/base/api-support/gateway
-  prune: false
+  interval: 60m
+  timeout: 3m
+  retryInterval: 2m
+  prune: true
   wait: true
+  path: ./kubernetes/fluxcd/infra/base/api-support/gateway
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -22,10 +24,12 @@ metadata:
   name: traefik-controller
   namespace: flux-system
 spec:
-  interval: 10m
-  path: ./kubernetes/fluxcd/infra/base/controllers/traefik
+  interval: 60m
+  timeout: 3m
+  retryInterval: 2m
   prune: true
   wait: true
+  path: ./kubernetes/fluxcd/infra/base/controllers/traefik
   dependsOn:
     - name: gateway-api-crds
   sourceRef:
@@ -40,10 +44,12 @@ metadata:
   name: traefik-configs
   namespace: flux-system
 spec:
-  interval: 10m
-  path: ./kubernetes/fluxcd/infra/base/configs/gateway
+  interval: 60m
+  timeout: 3m
+  retryInterval: 2m
   prune: true
   wait: true
+  path: ./kubernetes/fluxcd/infra/base/configs/gateway
   postBuild:
     substituteFrom:
       - kind: ConfigMap
