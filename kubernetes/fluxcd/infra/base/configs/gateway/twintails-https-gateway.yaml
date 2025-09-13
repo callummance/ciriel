@@ -21,7 +21,7 @@ spec:
 
     - name: twintails-http
       protocol: HTTP
-      hostname: "*.twintailsare.moe"
+      hostname: "${base_hostname}"
       port: 80
       allowedRoutes:
         namespaces:
@@ -29,7 +29,7 @@ spec:
 
     - name: twintails-https
       protocol: HTTPS
-      hostname: "*.twintailsare.moe"
+      hostname: "*.${base_hostname}"
       port: 443
       allowedRoutes:
         namespaces:

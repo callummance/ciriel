@@ -44,6 +44,11 @@ spec:
   path: ./kubernetes/fluxcd/infra/base/configs/gateway
   prune: true
   wait: true
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: cluster-config
+        optional: false
   dependsOn:
     - name: gateway-api-crds
   sourceRef:

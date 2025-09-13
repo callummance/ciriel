@@ -9,6 +9,11 @@ spec:
   path: ./kubernetes/fluxcd/infra/base/controllers/local-path-provisioner
   prune: true
   wait: true
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: cluster-config
+        optional: false
   sourceRef:
     kind: GitRepository
     name: flux-system

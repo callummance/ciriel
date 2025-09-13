@@ -7,3 +7,4 @@ resources:
   - ./flux-system
   - ./secrets.yaml
   - ./infra.yaml
+  - ./cluster-config.yaml
