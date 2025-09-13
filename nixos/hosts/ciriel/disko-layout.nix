@@ -1,4 +1,9 @@
-{ lib, systemVars, ... }:
+{
+  lib,
+  systemVars,
+  globalConfig,
+  ...
+}:
 let
   inherit (systemVars)
     ssdDevice
@@ -9,6 +14,9 @@ let
 
     hddDevices
     hddPool
+    ;
+  inherit (globalConfig)
+    mount-points
     ;
 in
 {
@@ -67,7 +75,7 @@ in
               content = {
                 type = "filesystem";
                 format = "ext4";
-                mountpoint = "/opt/ssd_store";
+                mountpoint = "${mount-points.ssd-store}";
               };
             };
           };
@@ -110,11 +118,11 @@ in
           compression = "zstd";
           "com.sun:auto-snapshot" = "false";
         };
-        mountpoint = "/opt/hdd_store";
+        mountpoint = "${mount-points.hdd-store}";
         datasets = {
           media = {
             type = "zfs_fs";
-            mountpoint = "/opt/hdd_store/media";
+            mountpoint = "${mount-points.hdd-store}/media";
             options = {
               sharenfs = "rw=192.168.1.0/24,anonuid=70,anongid=70";
             };
@@ -122,7 +130,12 @@ in
 
           files = {
             type = "zfs_fs";
-            mountpoint = "/opt/hdd_store/files";
+            mountpoint = "${mount-points.hdd-store}/files";
+          };
+
+          container_store = {
+            type = "zfs_fs";
+            mountpoint = "${mount-points.hdd-store}/container_store";
           };
         };
       };

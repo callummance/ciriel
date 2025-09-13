@@ -11,3 +11,23 @@ spec:
   sourceRef:
     kind: GitRepository
     name: local-path-provisioner
+  patches:
+    - patch: |-
+        apiVersion: v1
+        kind: ConfigMap
+        metadata:
+          name: local-path-config
+          namespace: local-path-storage
+        $patch: delete
+      target:
+        kind: ConfigMap
+        name: local-path-config
+        namespace: local-path-storage
+    - patch: |
+        - op: replace
+          path: /spec/template/spec/volumes/0/configMap/name
+          value: local-path-storage-config
+      target: 
+        kind: Deployment
+        name: local-path-provisioner
+        namespace: local-path-storage

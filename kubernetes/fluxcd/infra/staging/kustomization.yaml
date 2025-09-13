@@ -7,4 +7,3 @@ resources:
   - ./persistence.yaml
   - ./gateway.yaml
   - ./certificates.yaml
-  - ./monitoring.yaml

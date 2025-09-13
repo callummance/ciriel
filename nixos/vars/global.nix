@@ -7,6 +7,10 @@
       gid = 2001;
     };
   };
+  mount-points = {
+    hdd-store = "/opt/hdd_store";
+    ssd-store = "/opt/ssd_store";
+  };
   users = {
     callum = {
       groups = [

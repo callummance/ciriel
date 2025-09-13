@@ -11,6 +11,9 @@ deploy-ciriel addr: gen-nix-vars
         --target-host root@{{addr}} \
         --show-trace
 
+[group("dev-kube-cluster")]
+gen-kube-staging-vars:
+    uv run ./kubernetes/generate_config.py staging
 
 [group("dev-kube-cluster")]
 encrypt-token-local: 

@@ -1,0 +1,9 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: local-persistence-config
+resources:
+  - ./lpp-configmap.yaml
+  - ./hdd-storageclass.yaml
+  - ./ssd-storageclass.yaml

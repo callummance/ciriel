@@ -18,5 +18,10 @@
         "callum": {
             "gid": 2002
         }
+    },
+
+    "mount-points": {
+        "ssd-store": "/opt/ssd_store",
+        "hdd-store": "/opt/hdd_store"
     }
 }

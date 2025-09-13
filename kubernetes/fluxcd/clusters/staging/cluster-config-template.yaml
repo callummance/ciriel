@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-config
+  namespace: flux-system
+data:
+  base_hostname: "staging.twintailsare.moe"
+  hdd_mountpoint: "{{ mount-points.hdd-store }}"
+  ssd_mountpoint: "{{ mount-points.ssd-store }}"
