@@ -7,3 +7,4 @@ resources:
   - ./persistence.yaml
   - ./gateway.yaml
   - ./certificates.yaml
+  - ./vector-collector.yaml
