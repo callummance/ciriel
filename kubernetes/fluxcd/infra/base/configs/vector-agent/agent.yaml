@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kaasops/vector-operator/refs/heads/main/helm/charts/vector-operator/crds/observability.kaasops.io_vectors.yaml
+apiVersion: observability.kaasops.io/v1alpha
+kind: Vector
+metadata:
+  name: vector-agent
+  namespace: vector
+spec:
+  agent:
+    service: true
+  resources:
+    limits:
+      cpu: "500m"
+      memory: 512Mi
+    requests:
+      cpu: "100m"
+      memory: 64Mi

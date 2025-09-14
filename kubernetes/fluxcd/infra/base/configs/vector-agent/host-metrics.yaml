@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kaasops/vector-operator/refs/heads/main/helm/charts/vector-operator/crds/observability.kaasops.io_clustervectorpipelines.yaml
+apiVersion: observability.kaasops.io/v1alpha1
+kind: ClusterVectorPipeline
+metadata:
+  name: host-metrics
+spec:
+  sources:
+    host-metrics:
+      type: "host_metrics"
+  sinks:
+    #TODO: add victoriametrics server
+    console-test:
+      type: "console"
+      encoding:
+        codec: "json"
+      inputs:
+        - host-metrics
