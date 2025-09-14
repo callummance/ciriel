@@ -31,6 +31,8 @@ spec:
   retryInterval: 2m
   prune: true
   wait: true
+  dependsOn: 
+    - name: persistence-lpp-configs
   path: ./kubernetes/fluxcd/infra/base/controllers/local-path-provisioner
   sourceRef:
     kind: GitRepository

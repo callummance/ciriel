@@ -28,8 +28,8 @@ gen-gh-deploy-key:
 
 [group("dev-kube-cluster")]
 start-dev-cluster:
-    mkdir /tmp/ciriel_ssd
-    mkdir /tmp/ciriel_hdd
+    mkdir -p /tmp/ciriel_ssd
+    mkdir -p /tmp/ciriel_hdd
     minikube start
     minikube dashboard & disown
 

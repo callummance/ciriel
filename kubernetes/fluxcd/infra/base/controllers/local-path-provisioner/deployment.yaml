@@ -29,7 +29,7 @@ spec:
     - patch: |
         - op: replace
           path: /spec/template/spec/volumes/0/configMap/name
-          value: local-path-storage-config
+          value: local-path-config
       target: 
         kind: Deployment
         name: local-path-provisioner
