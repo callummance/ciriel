@@ -1,25 +1,17 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: traefik-gateway
+  name: traefik-remote-gateway
   namespace: traefik
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   gatewayClassName: traefik
   listeners:
-    - name: twintails-http
-      protocol: HTTP
-      hostname: "${base_hostname}"
-      port: 80
-      allowedRoutes:
-        namespaces:
-          from: All
-
-    - name: twintails-https
+    - name: twintails-remote-https
       protocol: HTTPS
       hostname: "*.${base_hostname}"
-      port: 443
+      port: 4443
       allowedRoutes:
         namespaces:
           from: All

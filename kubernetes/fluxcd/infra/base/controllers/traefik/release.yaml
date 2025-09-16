@@ -51,12 +51,6 @@ spec:
             secret: dashboard-auth-secret
     # Enable dashboard
     ports:
-      dashboard:
-        port: 8888
-        protocol: TCP
-        expose:
-          default: true
-        nodePort: 30002
       web:
         port: 80
         protocol: TCP
@@ -69,6 +63,12 @@ spec:
         expose:
           default: true
         nodePort: 30001
+      remoteweb:
+        port: 4443
+        protocol: TCP
+        expose:
+          default: true
+        nodePort: 30002
     api:
       dashboard: true
       insecure: true

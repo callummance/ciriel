@@ -30,7 +30,8 @@
     - gluetun
 
 ### Ingress
- - Pangolin (WAN)
+ - ~~Pangolin (WAN)~~
+ - knockd+rathole+2nd traefik instance for WAN
  - Traefik (LAN)
  - Tailscale
  - Authelia + glauth?
