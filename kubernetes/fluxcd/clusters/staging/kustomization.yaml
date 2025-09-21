@@ -8,3 +8,4 @@ resources:
   - ./secrets.yaml
   - ./cluster-config.yaml
   - ./infra.yaml
+  - ./apps.yaml
