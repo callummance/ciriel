@@ -5,6 +5,7 @@ metadata:
   name: infra-staging
 resources:
   - ./persistence.yaml
+  - ./reflector.yaml
   - ./gateway.yaml
   - ./certificates.yaml
   - ./vector-collector.yaml
