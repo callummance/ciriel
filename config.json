@@ -23,5 +23,10 @@
     "mount-points": {
         "ssd-store": "/opt/ssd_store",
         "hdd-store": "/opt/hdd_store"
+    },
+
+    "cluster-addrs": {
+        "local": "192.168.49.2",
+        "remote_proxy": "127.0.0.1"
     }
 }

@@ -30,7 +30,10 @@ gen-gh-deploy-key:
 start-dev-cluster:
     mkdir -p /tmp/ciriel_ssd
     mkdir -p /tmp/ciriel_hdd
-    minikube start
+    minikube start \
+        --static-ip 192.168.49.2
+    minikube mount /tmp/ciriel_ssd:/opt/ssd_store
+    minikube mount /tmp/ciriel_hdd:/opt/hdd_store
     minikube dashboard & disown
 
 [group("dev-kube-cluster")]

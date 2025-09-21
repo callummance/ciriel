@@ -1,0 +1,21 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: traefik-dashboard
+  namespace: traefik
+spec:
+  parentRefs:
+    - name: traefik-gateway
+      namespace: traefik
+  hostnames:
+    - "pihole.${base_hostname}"
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - kind: Service
+          name: pihole
+          namespace: pihole
+          port: 80

@@ -7,3 +7,5 @@ data:
   base_hostname: "staging.twintailsare.moe"
   hdd_mountpoint: "{{ mount-points.hdd-store }}"
   ssd_mountpoint: "{{ mount-points.ssd-store }}"
+  local_ip: "{{ cluster-addrs.local }}"
+  remote_proxy_ip: "{{ cluster-addrs.remote_proxy }}"

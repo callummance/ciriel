@@ -1,0 +1,47 @@
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: external-dns-wan
+  namespace: external-dns
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: external-dns-wan
+  template:
+    metadata:
+      labels:
+        app: external-dns-wan
+    spec:
+      serviceAccountName: external-dns
+      containers:
+      - name: external-dns
+        image: registry.k8s.io/external-dns/external-dns:v0.19.0
+        # If authentication is disabled and/or you didn't create
+        # a secret, you can remove this block.
+        envFrom:
+        - secretRef:
+            # Change this if you gave the secret a different name
+            name: cloudflare-api-token
+        args:
+        - --source=gateway-httproute
+        - --source=gateway-grpcroute
+        - --source=gateway-tcproute
+        - --source=gateway-udproute
+        - --source=ingress
+        - --provider=cloudflare
+        - --cloudflare-proxied
+        - --cloudflare-region-key="eu"
+        - --cloudflare-record-comment="managed by kubernetes external-dns"
+        resources: 
+          requests:
+            cpu: 50m
+            memory: 64Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+      securityContext:
+        fsGroup: 65534 # For ExternalDNS to be able to read Kubernetes token files
