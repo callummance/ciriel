@@ -5,6 +5,7 @@ metadata:
   namespace: traefik
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    external-dns.alpha.kubernetes.io/target: "${remote_proxy_ip}"
 spec:
   gatewayClassName: traefik
   listeners:
