@@ -32,7 +32,8 @@ start-dev-cluster:
     mkdir -p /tmp/ciriel/hdd_store
     minikube start \
         --static-ip 192.168.49.2 \
-        --driver docker 
+        --driver docker \
+        --extra-config=apiserver.service-node-port-range=1-65535
     nohup minikube mount /tmp/ciriel/ssd_store:/opt/ssd_store > /tmp/ciriel/ssd_mount.log & 
     nohup minikube mount /tmp/ciriel/hdd_store:/opt/hdd_store > /tmp/ciriel/hdd_mount.log & 
 

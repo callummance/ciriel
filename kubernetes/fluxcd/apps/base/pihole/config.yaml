@@ -33,7 +33,7 @@ data:
     
     admin:
       enabled: true
-      existingSecret: pihole-admin-pass
+      existingSecret: pihole-password
       passwordKey: "pihole-password"
 
 
