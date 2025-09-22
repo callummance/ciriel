@@ -28,17 +28,21 @@ gen-gh-deploy-key:
 
 [group("dev-kube-cluster")]
 start-dev-cluster:
-    mkdir -p /tmp/ciriel_ssd
-    mkdir -p /tmp/ciriel_hdd
+    mkdir -p /tmp/ciriel/ssd_store
+    mkdir -p /tmp/ciriel/hdd_store
     minikube start \
-        --static-ip 192.168.49.2
-    minikube mount /tmp/ciriel_ssd:/opt/ssd_store
-    minikube mount /tmp/ciriel_hdd:/opt/hdd_store
+        --static-ip 192.168.49.2 \
+        --driver docker 
+    nohup minikube mount /tmp/ciriel/ssd_store:/opt/ssd_store > /tmp/ciriel/ssd_mount.log & 
+    nohup minikube mount /tmp/ciriel/hdd_store:/opt/hdd_store > /tmp/ciriel/hdd_mount.log & 
+
+[group("dev-kube-cluster")]
+dev-dash:
     minikube dashboard & disown
 
 [group("dev-kube-cluster")]
 bootstrap-flux-dev:
-    flux bootstrap git \
+    yes | flux bootstrap git \
         --url=ssh://git@github.com/callummance/ciriel \
         --branch=kube-dev \
         --private-key-file=./secrets/deploy.key \

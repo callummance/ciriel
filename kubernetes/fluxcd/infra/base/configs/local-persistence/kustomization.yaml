@@ -7,3 +7,4 @@ resources:
   - ./lpp-configmap.yaml
   - ./hdd-storageclass.yaml
   - ./ssd-storageclass.yaml
+  - ./namespace.yaml
