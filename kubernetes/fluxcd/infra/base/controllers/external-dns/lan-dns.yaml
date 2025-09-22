@@ -30,10 +30,10 @@ spec:
                 key: pihole-password
         args:
         - --source=gateway-httproute
-        - --source=gateway-grpcroute
-        - --source=gateway-tcproute
-        - --source=gateway-udproute
         - --source=ingress
+        - --source=service
+        - --gateway-name=traefik-gateway
+        - --gateway-namespace=traefik
         # Pihole only supports A/AAAA/CNAME records so there is no mechanism to track ownership.
         # You don't need to set this flag, but if you leave it unset, you will receive warning
         # logs when ExternalDNS attempts to create TXT records.

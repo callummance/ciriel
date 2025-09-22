@@ -30,10 +30,10 @@ spec:
                 key: cf-token
         args:
         - --source=gateway-httproute
-        - --source=gateway-grpcroute
-        - --source=gateway-tcproute
-        - --source=gateway-udproute
         - --source=ingress
+        - --source=service
+        - --gateway-name=traefik-remote-gateway
+        - --gateway-namespace=traefik
         - --provider=cloudflare
         - --cloudflare-proxied
         - --cloudflare-region-key="eu"
