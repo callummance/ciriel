@@ -15,4 +15,4 @@ data:
   hdd_mountpoint: "/opt/hdd_store"
   ssd_mountpoint: "/opt/ssd_store"
   local_ip: "192.168.49.2"
-  remote_proxy_ip: "127.0.0.1"
+  remote_proxy_ip: "203.0.113.1"
