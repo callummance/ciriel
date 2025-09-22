@@ -14,6 +14,6 @@ spec:
         kind: HelmRepository
         name: pihole-repo
         namespace: pihole
-      valuesFrom:
-        - kind: "ConfigMap"
-          name: pihole-config
+  valuesFrom:
+    - kind: "ConfigMap"
+      name: pihole-config
