@@ -8,14 +8,18 @@ metadata:
 data:
   values.yaml: |-
     persistentVolumeClaim:
-      enabled: true
-      storageClass: "hdd-local-path"
+      enabled: false
 
     serviceDhcp:
       enabled: false
 
+    dnsHostPort:
+      enabled: true
+      port: 53
+
     serviceDns:
       type: NodePort
+      nodePort: "53"
 
     serviceWeb:
       http:
@@ -26,7 +30,7 @@ data:
     resources:
       limits:
         cpu: 100m
-        memory: 128Mi
+        memory: 256Mi
       requests:
         cpu: 50m
         memory: 64Mi

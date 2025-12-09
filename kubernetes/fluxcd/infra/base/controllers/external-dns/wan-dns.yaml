@@ -35,7 +35,6 @@ spec:
         - --gateway-name=traefik-remote-gateway
         - --gateway-namespace=traefik
         - --provider=cloudflare
-        - --cloudflare-proxied
         - --cloudflare-region-key="eu"
         - --cloudflare-record-comment="managed by kubernetes external-dns"
         resources: 

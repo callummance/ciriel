@@ -5,7 +5,7 @@
  - NFS share
  - K3S
 
-## Containers - Kubernetes + ArgoCD
+## Containers - Kubernetes + Flux
 
 ### Filesharing
  - OpenCloud
@@ -53,6 +53,7 @@
  - netboot.xyz
  - Forgejo (git)
  - Linkwarden
+ - Homebox
 
 ### Monitoring
  - Grafana
